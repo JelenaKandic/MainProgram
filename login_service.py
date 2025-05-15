@@ -9,7 +9,7 @@ def load_users():
 users = load_users()
 
 def validate_login(entry_username, entry_password, root):
-    from step2_service import show_step2  # moved here to avoid circular import
+    from step2_service import show_step2 
 
     username = entry_username.get()
     password = entry_password.get()
