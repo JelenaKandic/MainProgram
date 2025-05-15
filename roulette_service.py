@@ -44,3 +44,4 @@ def show_roulette_options(root, username):
 
     tk.Button(nav_frame, text="Logout", command=lambda: show_login(root), bg="red", fg="black").pack(side="left", padx=10)
     tk.Button(nav_frame, text="Home", command=lambda: show_step2(root, username), bg="green", fg="black").pack(side="left", padx=10)
+
