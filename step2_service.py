@@ -1,5 +1,6 @@
 import tkinter as tk
 from mood_service import find_restaurants_and_show_result
+from mood_service import show_favorite
 
 def show_step2(root, username):
     from roulette_service import show_roulette_options  # move import here to avoid circular import
@@ -33,7 +34,7 @@ def show_step2(root, username):
     result_text = tk.StringVar()
 
     tk.Button(root, text="Find Restaurants", command=lambda: find_restaurants_and_show_result(
-        mood_entry, distance_entry, price_entry, rating_entry)).pack(pady=5)
+        mood_entry, distance_entry, price_entry, rating_entry, username)).pack(pady=5)
 
     tk.Label(root, textvariable=result_text, wraplength=350, bg="green").pack(pady=10)
 
@@ -41,7 +42,14 @@ def show_step2(root, username):
     frame2 = tk.Frame(root, bg="green")
     frame2.pack(pady=5)
 
-    tk.Button(frame2, text="Go", width=6, command=lambda: show_roulette_options(root, username)).pack(side="left", padx=(0, 10))
     tk.Label(frame2, text="2.) Restaurant Roulette", font=("Helvetica", 10), bg="green").pack(side="left")
+    tk.Button(frame2, text="Go", width=6, command=lambda: show_roulette_options(root, username)).pack(side="left", padx=(0, 10))
+
+    # Show favorite
+    frame3 = tk.Frame(root, bg="green")
+    frame3.pack(pady=5)
+
+    tk.Label(frame3, text="3.) Show Favorite", font=("Helvetica", 10), bg="green").pack(side="left")
+    tk.Button(frame3, text="Show Favorite", width=6, command=lambda: show_favorite(username)).pack(side="left", padx=(0, 10))
 
     tk.Button(root, text="Logout", command=root.destroy, bg="red", fg="black").pack(pady=20)
